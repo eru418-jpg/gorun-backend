@@ -1,6 +1,14 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 
+// Veritabanı bağlantısı
+const MONGO_URI = "mongodb+srv://eru418:35Az7847@cluster0.igadjrp.mongodb.net/gorun_db?retryWrites=true&w=majority";
+mongoose.connect(MONGO_URI)
+  .then(() => console.log("Veritabanı bağlı!"))
+  .catch((err) => console.error("Bağlantı hatası: ", err));
+
+// Sunucu ayarları
 app.get('/', (req, res) => {
   res.send('Sunucu çalışıyor!');
 });
