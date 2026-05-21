@@ -1,9 +1,8 @@
 const express = require('express');
 const app = express();
 
-// Basit bir test yolu
 app.get('/', (req, res) => {
-  res.send('Sunucu çalışıyor!');
+  res.send('Sunucu başarıyla çalışıyor!');
 });
 
 const PORT = process.env.PORT || 5000;
