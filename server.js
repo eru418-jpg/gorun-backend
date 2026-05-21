@@ -1,18 +1,4 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const app = express();
-
-const PORT = process.env.PORT || 5000;
-const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://eru418:35Az7847@cluster0.igadjrp.mongodb.net/gorun_db?retryWrites=true&w=majority";
-
-mongoose.connect(MONGO_URI)
-  .then(() => console.log("BAĞLANTI BAŞARILI: Veritabanı ile el sıkışıldı!"))
-  .catch((err) => console.error("BAĞLANTI HATASI: ", err.message));
-
-app.get('/', (req, res) => {
-  res.send('Sunucu çalışıyor ve veritabanına bağlı!');
-});
-
-app.listen(PORT, () => {
-  console.log(Sunucu ${PORT} portunda yayında.);
-});
+app.get('/', (req, res) => res.send('Sunucu çalışıyor!'));
+app.listen(5000, () => console.log('Sunucu 5000 portunda.'));
