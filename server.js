@@ -1,14 +1,18 @@
-mongoose.connect(dbURI)
-  .then(() => console.log("Veritabanı bağlantısı başarılı!"))
-  .catch((err) => console.log("Veritabanı hatası (sunucu çalışmaya devam ediyor):", err));
+const express = require('express');
+const cors = require('cors');
+const app = express();
 
+app.use(cors());
+app.use(express.json());
+
+// Ana yol testi
 app.get('/', (req, res) => {
-  res.send('Sunucu aktif ve yayında!');
+    res.send('Sunucu aktif ve yayında!');
 });
 
-// Render'ın vereceği portu kullan, yoksa 5000'i kullan
+// Render'ın atadığı portu yakala (En kritik kısım bu)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(Sunucu ${PORT} portunda başarıyla çalışıyor.);
+    console.log(Sunucu ${PORT} portunda çalışıyor.);
 });
