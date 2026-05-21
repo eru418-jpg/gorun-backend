@@ -1,4 +1,10 @@
-const express = require('express');
-const app = express();
-app.get('/', (req, res) => res.send('Sunucu çalışıyor!'));
-app.listen(5000, () => console.log('Sunucu 5000 portunda.'));
+const mongoose = require('mongoose');
+
+const UserSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  walkingLevel: { type: String, default: 'Başlangıç' }, // Başlangıç, Orta, İleri
+  createdAt: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('User', UserSchema);
