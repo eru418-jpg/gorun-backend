@@ -1,15 +1,13 @@
 const express = require('express');
-const cors = require('cors');
 const app = express();
+const PORT = process.env.PORT || 5000;
 
-app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Backend sorunsuz çalışıyor!');
+    res.send('Sunucu aktif ve sorunsuz çalışıyor!');
 });
 
-const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(Sunucu ${PORT} portunda yayında.);
+    console.log(Sunucu ${PORT} portunda başarıyla çalışıyor.);
 });
