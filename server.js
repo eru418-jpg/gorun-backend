@@ -5,12 +5,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Sunucu aktif ve yayında!');
+app.get('/', function (req, res) {
+  res.send('Sunucu aktif ve yayında!');
 });
 
+// Portu doğrudan kullan, Render atamasını otomatik yapar
 const PORT = process.env.PORT || 10000;
 
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(Sunucu ${PORT} portunda başarıyla çalışıyor.);
+app.listen(PORT, function () {
+  console.log('Sunucu ' + PORT + ' portunda çalışıyor.');
 });
