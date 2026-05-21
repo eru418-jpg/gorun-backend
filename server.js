@@ -18,5 +18,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(Sunucu ${PORT} portunda yayında.);
+    console.log(Sunucu${PORT}portunda yayında.);
 });
