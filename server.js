@@ -9,12 +9,12 @@ mongoose.connect(MONGO_URI)
   .then(() => console.log("Veritabanı bağlantısı başarılı!"))
   .catch((err) => console.error("Bağlantı hatası: ", err.message));
 
-// Basit bir test rotası
+// Ana sayfa rotası
 app.get('/', (req, res) => {
-  res.send('Sunucu çalışıyor!');
+  res.send('Sunucu aktif ve çalışıyor!');
 });
 
-// Sunucuyu başlat
+// Sunucuyu başlatma
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(Sunucu ${PORT} portunda yayında.);
