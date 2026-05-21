@@ -5,14 +5,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Ana yol testi
+// Basit bir test yolu
 app.get('/', (req, res) => {
-    res.send('Sunucu aktif ve yayında!');
+    res.send('Sunucu aktif!');
 });
 
-// Render'ın atadığı portu yakala (En kritik kısım bu)
+// Render'ın vereceği portu zorunlu olarak kullan
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log(Sunucu ${PORT} portunda çalışıyor.);
+const server = app.listen(PORT, () => {
+    console.log(Sunucu ${PORT} portunda başarıyla çalışıyor.);
 });
