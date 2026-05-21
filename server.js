@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Sunucu başarıyla çalışıyor!');
+  res.send('Sunucu çalışıyor!');
 });
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(Sunucu ${PORT} portunda yayında.);
+  console.log('Sunucu yayında.');
 });
