@@ -1,14 +1,12 @@
 const express = require('express');
-const connectDB = require('./db'); // db.js dosyasını çağırır
-const User = require('./models/user'); // Modeli çağırır
+const connectDB = require('./db');
+const User = require('./models/user');
 const app = express();
 
-app.use(express.json()); // JSON verilerini okumak için
+app.use(express.json());
 
-// Veritabanı bağlantısını bir kez başlat
-connectDB(); 
+connectDB();
 
-// API yolları
 app.post('/api/users', async (req, res) => {
   try {
     const newUser = new User(req.body);
@@ -25,5 +23,5 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(Sunucu ${PORT} portunda ayakta.);
+  console.log('Sunucu ayakta.');
 });
