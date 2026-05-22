@@ -3,12 +3,10 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGODB_URI);
-    console.log("-----------------------------------------");
-    console.log("VERİTABANI BAĞLANTISI BAŞARILI!");
-    console.log("-----------------------------------------");
+    console.log("Veritabanı bağlantısı başarılı!");
   } catch (err) {
-    console.log("Bağlantı hatası:", err);
+    console.error("Veritabanı bağlantısı başarısız:", err.message);
   }
 };
 
-module.exports = connectDB
+module.exports = connectDB;
