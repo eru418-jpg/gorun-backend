@@ -1,5 +1,5 @@
 const express = require('express');
-const connectDB = require('./db'); // db.js'i bağladık
+const connectDB = require('./db');
 const app = express();
 
 // Veritabanı bağlantısını başlat
