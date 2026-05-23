@@ -1,18 +1,20 @@
+
 const express = require('express');
-const connectDB = require('./db');
+const mongoose = require('mongoose');
 const app = express();
 
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('Sunucu aktif, veritabanı arka planda bağlanıyor!');
+  res.send('Görün uygulaması backend aktif!');
 });
 
-// Render zaman aşımına düşmesin diye ÖNCE portu hemen açıyoruz
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(Sunucu ayakta. Port: ${PORT});
-  
-  // Sunucu ayağa kalktıktan hemen sonra veritabanı bağlantısını başlatıyoruz
-  connectDB();
+  console.log("Sunucu ayakta.");
+
+  // Veritabanı bağlantısı doğrudan burada çalışıyor
+  mongoose.connect(process.env.MONGODB_URI)
+    .then(() => console.log("MongoDB bağlantısı başarılı!"))
+    .catch((err) => console.error("Veritabanı bağlantısı başarısız:", err.message));
 });
