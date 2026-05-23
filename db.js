@@ -1,32 +1,17 @@
-const mongoose = require('mongoose');
+const express = require('express');
+const connectDB = require('./db'); // db.js dosyasından bağlantıyı çekiyoruz
+const app = express();
 
-const connectDB = async () => {
-  try {
-   const mongoose = require('mongoose');
+app.use(express.json());
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log("Veritabanı bağlantısı başarılı!");
-  } catch (err) {
-    console.error("Veritabanı bağlantısı başarısız:", err.message);
-  }
-};
+// Veritabanı bağlantısını tetikliyoruz
+connectDB();
 
-module.exports = connectDB;
+app.get('/', (req, res) => {
+  res.send('Sunucu ve veritabanı aktif!');
+});
 
-const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGODB_URI);
-    console.log("Veritabanı bağlantısı başarılı!");
-  } catch (err) {
-    console.error("Veritabanı bağlantısı başarısız:", err.message);
-  }
-};
-    console.log("Veritabanı bağlantısı başarılı!");
-  } catch (err) {
-    console.error("Veritabanı bağlantısı başarısız:", err.message);
-  }
-};
-
-module.exports = connectDB;
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, '0.0.0.0', () => {
+  console.log("Sunucu ayakta.");
+});
