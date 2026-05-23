@@ -5,9 +5,10 @@ const app = express();
 
 app.use(express.json());
 
-// Veritabanı bağlantısını en başta bir kez başlatıyoruz
+// Veritabanı bağlantısını başlat
 connectDB(); 
 
+// API yolları
 app.post('/api/users', async (req, res) => {
   try {
     const newUser = new User(req.body);
@@ -24,5 +25,5 @@ app.get('/', (req, res) => {
 
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, '0.0.0.0', () => {
-  console.log('Sunucu ayakta.');
+  console.log(Sunucu ${PORT} portunda ayakta.);
 });
